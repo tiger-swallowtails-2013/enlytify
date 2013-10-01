@@ -11,22 +11,25 @@ require 'rack/test'
 describe "associations" do 
   before(:each) do 
     @user = User.create
-    @talk = Talk.create
+    @talk = @user.talks.create
   end #before
   context "when we create a note" do  
     before(:each) do 
-      @note = Note.create
+      @note = @talk.notes.create   
+      @note.user_id = @talk.user_id                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
     end 
 
     it "should have a talk_id" do 
-      @note.talk_id.should exist
+      expect(@note.talk_id).to be_a_kind_of(Integer)    
     end #it
     it "should have a user_id" do 
+      expect(@note.user_id).to be_a_kind_of(Integer)
     end #it 
   end #context  
 
   context "when we create a talk" do 
-    it "should have a user_id" do 
+    it "should have a user_id" do
+      expect(@talk.user_id).to be_a_kind_of(Integer)     
     end #it
   end #context
 end #describe

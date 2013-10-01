@@ -14,4 +14,5 @@ group :development, :test do
   gem 'tux'
   gem 'jasmine'
   gem 'faker'
+  gem 'dotenv'
 end

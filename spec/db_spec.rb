@@ -1,11 +1,4 @@
-ENV['RACK_ENV']='test'
-
-require 'rspec'
-require_relative '../app/models/note'
-require_relative '../app/models/user'
-require_relative '../app/models/talk'
-require_relative "../config"
-require 'rack/test'
+require_relative "spec_helper"
 
 
 describe "associations" do 

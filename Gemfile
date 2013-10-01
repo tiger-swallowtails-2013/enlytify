@@ -4,9 +4,8 @@ gem 'sinatra'
 gem 'pg'
 gem 'sinatra-activerecord'
 gem 'dbc-ruby'
-gem 'omniauth-github'
+gem 'omniauth-dbc'
 gem 'dotenv'
-
 
 group :development, :test do
   gem 'rspec'

@@ -55,7 +55,7 @@ GEM
     omniauth (1.1.4)
       hashie (>= 1.2, < 3)
       rack
-    omniauth-dbc (1.0.0)
+    omniauth-github (1.1.0)
       omniauth (~> 1.0)
       omniauth-oauth2 (~> 1.1)
     omniauth-oauth2 (1.1.1)
@@ -119,7 +119,7 @@ DEPENDENCIES
   dotenv
   faker
   jasmine
-  omniauth-dbc
+  omniauth-github
   pg
   rack-test
   rspec

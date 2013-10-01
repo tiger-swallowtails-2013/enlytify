@@ -4,7 +4,7 @@ gem 'sinatra'
 gem 'pg'
 gem 'sinatra-activerecord'
 gem 'dbc-ruby'
-gem 'omniauth-dbc'
+gem 'omniauth-github'
 gem 'dotenv'
 
 

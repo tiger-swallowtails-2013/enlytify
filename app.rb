@@ -38,9 +38,9 @@ get '/' do
   erb :index
 end
 
-get '/test' do
+get '/dashboard' do
   if authenticated?
-    "Hello World"
+    erb :dashboard
   else
     "Not authenticated"
   end
@@ -56,7 +56,7 @@ get '/auth/:provider/callback' do
   session[:user_attributes] = user_attributes
   token = request.env['omniauth.auth'].credentials
   session[:oauth_token] = token_as_hash(token)
-  redirect to ('/test')
+  redirect to ('/dashboard')
 end
 
 get '/sign_out' do

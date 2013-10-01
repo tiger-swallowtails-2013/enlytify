@@ -7,7 +7,6 @@ gem 'dbc-ruby'
 gem 'omniauth-dbc'
 gem 'dotenv'
 
-
 group :development, :test do
   gem 'rspec'
   gem 'rack-test'

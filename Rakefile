@@ -1,5 +1,5 @@
 require 'sinatra/activerecord/rake'
-require_relative 'app.rb'
+require_relative 'app/app.rb'
 
 desc "Create postgres database"
 task "db:create" do

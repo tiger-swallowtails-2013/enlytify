@@ -17,6 +17,8 @@ ActiveRecord::Schema.define(version: 20131001184905) do
 
   create_table "notes", force: true do |t|
     t.string   "text"
+    t.integer  "talk_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -26,6 +28,7 @@ ActiveRecord::Schema.define(version: 20131001184905) do
     t.string   "description"
     t.string   "resources"
     t.string   "phase"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -5,12 +5,13 @@ class CreateTalks < ActiveRecord::Migration
       t.string :description
       t.string :resources
       t.string :phase
+      t.belongs_to :user
 
       t.timestamps
     end
   end
 
   def down
-    drop_table
+    drop_table :talks
   end
 end

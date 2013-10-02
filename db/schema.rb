@@ -17,29 +17,19 @@ ActiveRecord::Schema.define(version: 20131001184905) do
 
   create_table "notes", force: true do |t|
     t.string   "text"
+    t.integer  "author_id"
     t.integer  "talk_id"
-    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "talks", force: true do |t|
     t.string   "topic"
+    t.datetime "date"
     t.string   "description"
     t.string   "resources"
     t.string   "phase"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "users", force: true do |t|
-    t.string   "fullname"
-    t.string   "gravatar"
-    t.string   "email"
-    t.string   "github_profile"
-    t.integer  "cohort_id"
-    t.integer  "dbc_student_id"
+    t.integer  "speaker_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

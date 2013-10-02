@@ -1,5 +1,3 @@
-require_relative '../../config.rb'
-
 class User
   attr_reader :fullname, :gravatar, :email, :github_profile, :cohort_id, :dbc_student_id
   
@@ -10,5 +8,9 @@ class User
     @github_profile = DBC::User.find(user_attributes.id).profile[:github]
     @cohort_id = DBC::User.find(user_attributes.id).cohort_id
     @dbc_student_id = user_attributes['id']
+  end 
+
+  def find(id)
+    DBC::User.find(id)
   end 
 end 

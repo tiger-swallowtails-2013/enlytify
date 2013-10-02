@@ -37,6 +37,7 @@ end
 
 get '/dashboard' do
   if authenticated?
+    @days_talks = Talk.all
     erb :dashboard
   else
     "Not authenticated"

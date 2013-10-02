@@ -1,21 +1,15 @@
 <div id="left-arrow"><a href="#" class="btn btn-primary">Previous Day</a></div>
   <div class="container">
-    <h1>Lightning Talks - 10/1/2013</h1> 
+    <h1>Lightning Talks - <%#= current_date%></h1> 
     <table id="topics-date">
       <th>Topic</th>
       <th>Author</th>
-        <tr>
-          <td class='talk'>Backbone</td>
-          <td class='author'>Doug</td>
+      <% @days_talks.each do |talk| %>
+         <tr>
+          <td class='talk'><%= talk.topic %></td>
+          <td class='author'><%= DBC::User.find(talk.speaker_id).name %></td>
         </tr>
-        <tr>
-          <td class='talk'>Business Model Canvas</td>
-          <td class='author'>Robert</td>
-        </tr>
-        <tr>
-          <td class='talk'>JSON</td>
-          <td class='author'>Nick</td>
-        </tr>
+      <% end %>
     </table>
     <a href="#" class="btn btn-primary btn-large">Add Talk</a>
   </div>

@@ -1,5 +1,4 @@
 ENV['RACK_ENV'] ||= 'test'
-
 require "rack/test"
 require 'rspec'
 
@@ -7,6 +6,7 @@ require_relative "../app/app"
 require_relative '../app/models/note'
 require_relative '../app/models/user'
 require_relative '../app/models/talk'
+ENV['DBC_API'] = 'adf1bddb9ce560351173ef3a19a288aa'
 
 
 
@@ -21,7 +21,6 @@ end
 
 RSpec.configure do |config|
   config.before do
-    User.destroy_all
     Talk.destroy_all
     Note.destroy_all
   end

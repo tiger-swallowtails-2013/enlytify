@@ -46,6 +46,7 @@ end
 
 get '/auth/:provider/callback' do 
   user_attributes = request.env['omniauth.auth'].info
+  p user_attributes
   session[:user_attributes] = user_attributes
   token = request.env['omniauth.auth'].credentials
   session[:oauth_token] = token_as_hash(token)

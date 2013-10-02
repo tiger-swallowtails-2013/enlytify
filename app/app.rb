@@ -35,25 +35,20 @@ get '/' do
   erb :index
 end
 
-get '/test' do
-  if authenticated?
-    "Hello World"
-  else
-    "Not authenticated"
-  end
-end
+get '/talk/:id' do 
+  erb :talk
+end 
 
 get '/sign_in' do
   redirect to ('/auth/dbc')
 end
 
-
-get '/auth/:provider/callback' do
+get '/auth/:provider/callback' do 
   user_attributes = request.env['omniauth.auth'].info
   session[:user_attributes] = user_attributes
   token = request.env['omniauth.auth'].credentials
   session[:oauth_token] = token_as_hash(token)
-  redirect to ('/test')
+  redirect to ('/')
 end
 
 get '/sign_out' do

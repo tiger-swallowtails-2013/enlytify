@@ -3,11 +3,9 @@ require 'sinatra/activerecord'
 require 'dbc-ruby'
 require 'omniauth-dbc'
 require 'dotenv'
-
+require_relative '../config'
 
 Dotenv.load('.env')
-ENV['RACK_ENV'] == 'test' ? DB_NAME = "enlytifydb_test" : DB_NAME = "enlytifydb"
-ActiveRecord::Base.establish_connection(ENV["DATABASE_URL"] || "postgresql://localhost/#{DB_NAME}")
 
 configure do
   enable :sessions
@@ -33,7 +31,6 @@ helpers do
   end
 end
 
-
 get '/' do
   erb :index
 end
@@ -46,12 +43,16 @@ get '/dashboard' do
   end
 end
 
+get '/talk/:id' do 
+  # @talk = Talk.find(params[:id])
+  erb :talk
+end 
+
 get '/sign_in' do
   redirect to ('/auth/dbc')
 end
 
-
-get '/auth/:provider/callback' do
+get '/auth/:provider/callback' do 
   user_attributes = request.env['omniauth.auth'].info
   session[:user_attributes] = user_attributes
   token = request.env['omniauth.auth'].credentials

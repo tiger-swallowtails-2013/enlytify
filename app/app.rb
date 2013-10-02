@@ -36,7 +36,7 @@ get '/' do
 end
 
 get '/talk/:id' do 
-  # @talk = Talk.find(params[:id])
+  @talk = Talk.find(params[:id])
   erb :talk
 end 
 

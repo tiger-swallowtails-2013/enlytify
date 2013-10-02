@@ -6,7 +6,7 @@ class CreateTalks < ActiveRecord::Migration
       t.string :description
       t.string :resources
       t.string :phase
-      t.belongs_to :user
+      t.integer :speaker_id
 
       t.timestamps
     end

@@ -11,19 +11,23 @@ body {
 
 }
 
-#left-arrow{
+#prev-day{
   margin-left: auto;
   float: left;
   position: absolute;
   top: 25px;
 }
 
-#right-arrow{
+#next-day{
   margin-right: auto;
   float: right;
   position: absolute;
   top: 25px;
   right: 0px;
+}
+
+#test{
+  display:none;
 }
 
 /*.button-primary{

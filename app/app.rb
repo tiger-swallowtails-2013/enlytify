@@ -29,15 +29,25 @@ helpers do
       expires_at: token.expires_at
     }
   end
+
+  def date_format(date)
+    months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    date_array = date.scan(/../)
+    month = months[date_array[0].to_i-1]
+    day = date_array[1]
+    year = date_array[2] + date_array[3]
+    @formatted_date = "#{month} #{day}, #{year}"
+  end
 end
 
 get '/' do
   erb :index
 end
 
-get '/dashboard' do
+get '/dashboard/:date' do
   if authenticated?
-    @days_talks = Talk.all
+    @date = params[:date]
+    @days_talks = Talk.where("date = ?", @date)
     erb :dashboard
   else
     "Not authenticated"
@@ -59,7 +69,8 @@ get '/auth/:provider/callback' do
   session[:user_attributes] = user_attributes
   token = request.env['omniauth.auth'].credentials
   session[:oauth_token] = token_as_hash(token)
-  redirect to ('/dashboard')
+  @date = (DateTime.now).strftime('%m%d%Y')
+  redirect to ("/dashboard/#{@date}")
 end
 
 get '/sign_out' do

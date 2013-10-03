@@ -1,6 +1,6 @@
-<div id="left-arrow"><a href="#" class="btn btn-primary">Previous Day</a></div>
+<div id="prev-day"><a href="#" class="btn btn-primary">Previous Day</a></div>
   <div class="container">
-    <h1>Lightning Talks - <%#= current_date%></h1> 
+    <h1 id="date">Lightning Talks - <%= date_format(@date) %></h1> 
     <table id="topics-date">
       <th>Topic</th>
       <th>Author</th>
@@ -13,7 +13,13 @@
     </table>
     <a href="#" class="btn btn-primary btn-large">Add Talk</a>
   </div>
-<div id="right-arrow"><a href="#" class="btn btn-primary">Next Day</a></div>
+<div id="next-day"><a href="#" class="btn btn-primary">Next Day</a></div>
+
+
+<div id='test'>
+Hello World
+</div>
+
 
 
 

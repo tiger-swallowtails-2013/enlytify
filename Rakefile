@@ -16,7 +16,7 @@ desc  "Seed the database"
 task "db:seed" do
   20.times do 
     Talk.create(topic: Faker::Company.catch_phrase,
-        date: DateTime.now,
+        date: (DateTime.now).strftime('%m%d%Y'),
         description:Faker::Lorem.paragraph,
         resources: (Faker::Internet.url) * 4,
         phase: rand(5),

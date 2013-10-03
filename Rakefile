@@ -15,12 +15,25 @@ end
 desc  "Seed the database"
 task "db:seed" do
   20.times do 
+    person_index = rand(5) + 1
     Talk.create(topic: Faker::Company.catch_phrase,
+        speaker: DBC::User.find(person_index).name,
         date: (DateTime.now).strftime('%m%d%Y'),
         description:Faker::Lorem.paragraph,
         resources: (Faker::Internet.url) * 4,
         phase: rand(5),
-        speaker_id: 1,
+        speaker_id: person_index,
+      )
+  end
+  20.times do 
+    person_index = rand(5) + 1
+    Talk.create(topic: Faker::Company.catch_phrase,
+        speaker: DBC::User.find(person_index).name,
+        date: (DateTime.now + 1).strftime('%m%d%Y'),
+        description:Faker::Lorem.paragraph,
+        resources: (Faker::Internet.url) * 4,
+        phase: rand(5),
+        speaker_id: person_index,
       )
   end
 end

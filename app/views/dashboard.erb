@@ -7,13 +7,13 @@
       <% @days_talks.each do |talk| %>
          <tr>
           <td class='talk'><%= talk.topic %></td>
-          <td class='author'><%= DBC::User.find(talk.speaker_id).name %></td>
+          <td class='author'><%= talk.speaker %></td>
         </tr>
       <% end %>
     </table>
     <a href="#" class="btn btn-primary btn-large">Add Talk</a>
   </div>
-<div id="next-day"><a href="#" class="btn btn-primary">Next Day</a></div>
+<div id="next-day"><a href="/dashboard/10032013" class="btn btn-primary">Next Day</a></div>
 
 
 <div id='test'>

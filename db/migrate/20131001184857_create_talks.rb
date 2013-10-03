@@ -2,6 +2,7 @@ class CreateTalks < ActiveRecord::Migration
   def up
     create_table :talks do |t|
       t.string :topic
+      t.string :speaker
       t.string :date
       t.string :description
       t.string :resources

@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20131001184905) do
 
   create_table "talks", force: true do |t|
     t.string   "topic"
+    t.string   "speaker"
     t.string   "date"
     t.string   "description"
     t.string   "resources"

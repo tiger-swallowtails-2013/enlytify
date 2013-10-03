@@ -1,16 +1,25 @@
 $(document).ready(function(){
-  bindRightButton()
-  bindLeftButton()
+  $("#next-day").bind("click", function() {
+    $.get( "/dashboard/")
+  });
+  // $("#prev-day").bind("click", function() {
+  //   alert("previous day bound")
+  // });
 });
 
-function bindRightButton(){
-  $('#next-day').click(function(event){
-    event.preventDefault();
-    $('#date').innerHTML('Lightning Talks - 
-  });
-}
+// function bindNextButton(){
+//    $('#next-day').click(function(event){
+//     event.preventDefault();
 
-function bindLeftButton(){
-  $('#prev-day').click()
-}
 
+
+// function bindRightButton(){
+//   $('#next-day').click(function(event){
+//     event.preventDefault();
+//     $('#date').innerHTML('Lightning Talks - 
+//   });
+// }
+
+// function bindLeftButton(){
+//   $('#prev-day').click()
+// }

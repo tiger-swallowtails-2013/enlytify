@@ -22,8 +22,10 @@ end
 
 
 RSpec.configure do |config|
+  config.include Capybara::DSL
   config.before do
     Talk.destroy_all
     Note.destroy_all
   end
 end
+Capybara.app = Sinatra::Application

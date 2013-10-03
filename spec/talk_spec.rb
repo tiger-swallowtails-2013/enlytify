@@ -32,7 +32,7 @@ end
 
 feature 'the current user is not the author of the talk', :type => :feature do
 
-  before :all do
+  before :each do
     @current_user = User.new({'name' => 'Morgan Wildermuth', 'email' => "morgan.wildermuth@gmail.com", 'gravatar' => "https://secure.gravatar.com/avatar/c08bab8ea8340a2598b06a54beade3cb.png?d=mm&r=PG&s=250", 'id' => 633})
     visit('/talk')
   end

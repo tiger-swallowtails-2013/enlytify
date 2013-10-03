@@ -2,14 +2,18 @@
       <h1><%= @talk.topic %></h1>
       <h3><%= @talk.date %></h3>
   </div>
-<form>
+<form action='talk/:id/:description' method='post'>
   <div>
     <h2><%= @talk.description %></h2>
-    <input type="textarea" name="desc">
+    <input type="textarea" name="desc" id='desc_form'>
+    <input type="submit" value="Save Description">
   </div>
+</form>
+<form action ='talk/:id/:resources' method='post'>
   <div> 
     <h2><%= @talk.resources %></h2>
-    <input type="textarea" name="resources">
+    <input type="textarea" name="resources" id='resources_form'>
+    <input type="submit" value="Save Resources">
   </div>
   <div>
     <!-- issue: getting the gravatar of user without having the user in the db -->

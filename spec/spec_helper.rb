@@ -1,6 +1,8 @@
+$LOAD_PATH.unshift(File.expand_path(__FILE__))
 ENV['RACK_ENV'] ||= 'test'
 require "rack/test"
 require 'rspec'
+require 'capybara/rspec'
 
 require_relative "../app/app"
 require_relative '../app/models/note'

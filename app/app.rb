@@ -46,8 +46,8 @@ end
 
 get '/dashboard/:date' do
   if authenticated?
-    @date = params[:date]
-    @days_talks = Talk.where("date = ?", @date)
+    @date = params[:date].to_date
+    @days_talks = Talk.where("date = ?", params[:date])
     erb :dashboard
   else
     "Not authenticated"
@@ -69,7 +69,7 @@ get '/auth/:provider/callback' do
   session[:user_attributes] = user_attributes
   token = request.env['omniauth.auth'].credentials
   session[:oauth_token] = token_as_hash(token)
-  @date = (DateTime.now).strftime('%m%d%Y')
+  @date = Time.now.to_date
   redirect to ("/dashboard/#{@date}")
 end
 

@@ -3,7 +3,7 @@ class CreateTalks < ActiveRecord::Migration
     create_table :talks do |t|
       t.string :topic
       t.string :speaker
-      t.string :date
+      t.date :date
       t.string :description
       t.string :resources
       t.string :phase

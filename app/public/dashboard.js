@@ -1,6 +1,6 @@
 $(document).ready(function(){
   $("#next-day").bind("click", function() {
-    $.get( "/dashboard/")
+    $.get($())
   });
   // $("#prev-day").bind("click", function() {
   //   alert("previous day bound")

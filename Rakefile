@@ -18,7 +18,7 @@ task "db:seed" do
     person_index = rand(5) + 1
     Talk.create(topic: Faker::Company.catch_phrase,
         speaker: DBC::User.find(person_index).name,
-        date: (DateTime.now).strftime('%m%d%Y'),
+        date: DateTime.now,
         description:Faker::Lorem.paragraph,
         resources: (Faker::Internet.url) * 4,
         phase: rand(5),
@@ -29,7 +29,7 @@ task "db:seed" do
     person_index = rand(5) + 1
     Talk.create(topic: Faker::Company.catch_phrase,
         speaker: DBC::User.find(person_index).name,
-        date: (DateTime.now + 1).strftime('%m%d%Y'),
+        date: (DateTime.now + 1),
         description:Faker::Lorem.paragraph,
         resources: (Faker::Internet.url) * 4,
         phase: rand(5),

@@ -1,6 +1,6 @@
-<div id="prev-day"><a href="#" class="btn btn-primary">Previous Day</a></div>
+<div id="prev-day"><a href="/dashboard/<%=@date - 1%>" class="btn btn-primary">Previous Day</a></div>
   <div class="container">
-    <h1 id="date">Lightning Talks - <%= date_format(@date) %></h1> 
+    <h1 id="date">Lightning Talks - <%=@date%></h1> 
     <table id="topics-date">
       <th>Topic</th>
       <th>Author</th>
@@ -13,12 +13,10 @@
     </table>
     <a href="#" class="btn btn-primary btn-large">Add Talk</a>
   </div>
-<div id="next-day"><a href="/dashboard/10032013" class="btn btn-primary">Next Day</a></div>
+<div id="/dashboard/<%=@date + 1%>"><a href="/dashboard/<%=@date + 1%>" class="btn btn-primary">Next Day</a></div>
 
 
-<div id='test'>
-Hello World
-</div>
+
 
 
 

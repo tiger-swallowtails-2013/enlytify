@@ -6,7 +6,7 @@ feature 'the current user is the author of the talk', :type => :feature do
     @talk = Talk.create
     @talk.id = 1
     @talk.save
-    @current_user = User.new({'name' => 'Morgan Wildermuth', 'email' => "morgan.wildermuth@gmail.com", 'gravatar' => "https://secure.gravatar.com/avatar/c08bab8ea8340a2598b06a54beade3cb.png?d=mm&r=PG&s=250", 'id' => 633})
+    @current_user = User.new({fullname: 'Morgan Wildermuth', email: "morgan.wildermuth@gmail.com", gravatar: "https://secure.gravatar.com/avatar/c08bab8ea8340a2598b06a54beade3cb.png?d=mm&r=PG&s=250", id: 633, cohort_id: 29})
     visit("/talk/#{@talk.id}")
   end
 

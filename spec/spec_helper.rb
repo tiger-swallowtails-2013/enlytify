@@ -28,4 +28,16 @@ RSpec.configure do |config|
     Note.destroy_all
   end
 end
+
+def login_as(user)
+  OmniAuth.config.add_mock(:dbc, {
+    {:provider => 'dbc',
+      :uid => user.dbc_student_id,
+      :info => {:fullname => 'Morgan Wildermuth'},
+      :credentials => {:token => '4e0f37c9ebcb3b24247f2fdbb637eb81'},
+    }
+  })
+  visit '/auth/dbc'
+end
+
 Capybara.app = Sinatra::Application

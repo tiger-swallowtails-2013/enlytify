@@ -53,9 +53,14 @@ post '/talk/:id' do
 end
 
 get '/talk/:id' do 
-  @talk = Talk.find(params[:id])
-  erb :talk
+  if authenticated?
+    @talk = Talk.find(params[:id])
+    erb :talk
+  else
+    "Not authenticated"
+  end
 end 
+
 
 
 get '/sign_in' do

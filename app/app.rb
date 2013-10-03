@@ -44,10 +44,25 @@ get '/dashboard' do
   end
 end
 
+post '/talk/:id/:description' do
+  @talk = Talk.find(:id)
+  @talk.description = params[:description]
+  @talk.save
+  erb :talk
+end
+
+post '/talk/:id/:resources' do
+  @talk = Talk.find(:id)
+  @talk.resources = params[:resources]
+  @talk.save
+  erb :talk
+end
+
 get '/talk/:id' do 
   @talk = Talk.find(params[:id])
   erb :talk
 end 
+
 
 get '/sign_in' do
   redirect to ('/auth/dbc')

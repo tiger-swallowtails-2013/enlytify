@@ -1,6 +1,5 @@
 require_relative "spec_helper"
 
-
 describe "associations" do 
   before(:each) do
     @current_user = User.new({'name' => 'Morgan Wildermuth', 'email' => "morgan.wildermuth@gmail.com", 'gravatar' => "https://secure.gravatar.com/avatar/c08bab8ea8340a2598b06a54beade3cb.png?d=mm&r=PG&s=250", 'id' => 633})

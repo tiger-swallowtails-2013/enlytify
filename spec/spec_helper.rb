@@ -20,7 +20,6 @@ module FeatureSpec
   end
 end
 
-
 RSpec.configure do |config|
   config.include Capybara::DSL
   config.before do

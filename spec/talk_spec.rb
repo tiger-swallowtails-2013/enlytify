@@ -1,4 +1,6 @@
 require 'spec_helper'
+require 'sinatra'
+enable :sessions
 
 feature 'the current user is the author of the talk', :type => :feature do
 

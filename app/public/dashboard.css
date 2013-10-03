@@ -1,0 +1,39 @@
+body {
+  background-image: url('/bg.jpg');
+  background-size: 2081px 1170px;
+}
+
+.container{ 
+  border: solid 1px;
+  margin-top: 5%;
+  width: 50%;
+  height: 100%;
+  background-color: white;
+  opacity: 0.4;
+  border-radius: 30px;
+
+}
+
+#prev-day{
+  margin-left: 1%;
+  float: left;
+  position: absolute;
+  top: 2%;
+}
+
+#next-day{
+  margin-right: auto;
+  float: right;
+  position: absolute;
+  top: 2%;
+  right: 1%;
+}
+
+#test{
+  display:none;
+}
+
+/*.button-primary{
+  background-color: #0088cc;
+  color: white;
+}*/

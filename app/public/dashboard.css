@@ -21,12 +21,21 @@ body {
   top: 2%;
 }
 
+.new_talk{
+  border-radius: 10px;
+  width: 38%;
+}
+
 #next-day{
   margin-right: auto;
   float: right;
   position: absolute;
   top: 2%;
   right: 1%;
+}
+
+#add_talk{
+  margin-left: 0.5%;
 }
 
 #test{

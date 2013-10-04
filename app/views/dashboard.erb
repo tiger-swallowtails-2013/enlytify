@@ -11,7 +11,13 @@
         </tr>
       <% end %>
     </table>
-    <a href="#" class="btn btn-primary btn-large">Add Talk</a>
+    <input class="new_talk" type="text" name="new_talk">
+    <select class="new_talk">
+     <% current_user.list_cohort_names(@cohort_id).each do |student| %>
+        <option><%= student %></option>
+     <%end%>
+    </select>
+    <button id="add_talk" class="btn btn-primary">add talk</button>
   </div>
 <div id="next-day"><a href="/dashboard/<%=@date + 1%>" class="btn btn-primary">Next Day</a></div>
 

@@ -54,6 +54,7 @@ get '/dashboard/:date' do
   end
 end
 
+
 post '/talk/:id' do
   @talk = Talk.find(params[:id])
   @talk.resources = params[:resources]
@@ -69,6 +70,7 @@ get '/talk/:id' do
   else
     "Not authenticated"
     redirect to ('/talk/:id')
+  end
 end
 
 

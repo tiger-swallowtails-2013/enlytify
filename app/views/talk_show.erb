@@ -2,17 +2,27 @@
     <h1><%= @talk.topic %></h1>
     <h3><%= @talk.date %></h3>
 </div>
-<form>
-  <div>
-    <h2>Description</h2>
-    <h2><%= @talk.description %></h2>
-  </div>
-  <div> 
-    <h2>Resources</h2>
-    <h2><%= @talk.resources %></h2>
-  </div>
-  <div>
-    <!-- issue: getting the gravatar of user without having the user in the db -->
-    <img src='' alt='author gravatar'>
-  </div> 
+<div>
+  <!-- issue: getting the gravatar of user without having the user in the db -->
+  <img src='' alt='author gravatar'>
+</div>
+<div>
+  <h2>Description</h2>
+  <h2><%= @talk.description %></h2>
+</div>
+<div>
+  <h2>Resources</h2>
+  <h2><%= @talk.resources %></h2>
+</div>
+<div>
+  <h2>Notes</h2>
+  <% @talk.notes.each do |note| %>
+  <p><%= note.text %></p>
+  <% end %>
+</div>
+<div>
+<form action='/talk/<%= @talk.id %>' method='post'>
+  <input class="new_note" type="text" name="new_note">
+  <button id="add_note" class="btn btn-primary">add note</button>
 </form>
+</div>

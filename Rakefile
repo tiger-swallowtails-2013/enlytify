@@ -14,7 +14,7 @@ end
 
 desc  "Seed the database"
 task "db:seed" do
-  20.times do 
+  20.times do
     person_index = rand(5) + 1
     Talk.create(topic: Faker::Company.catch_phrase,
         speaker: DBC::User.find(person_index).name,
@@ -25,9 +25,9 @@ task "db:seed" do
         speaker_id: person_index,
       )
   end
-  20.times do 
+  20.times do
     person_index = rand(5) + 1
-    Talk.create(topic: Faker::Company.catch_phrase,
+    @talk = Talk.create(topic: Faker::Company.catch_phrase,
         speaker: DBC::User.find(person_index).name,
         date: (DateTime.now + 1),
         description:Faker::Lorem.paragraph,
@@ -35,5 +35,6 @@ task "db:seed" do
         phase: rand(5),
         speaker_id: person_index,
       )
+    @talk.notes.create(text: "I'm a note!", author_id: person_index)
   end
 end

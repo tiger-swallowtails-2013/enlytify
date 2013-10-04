@@ -60,8 +60,9 @@ post '/talk/:id' do
   @talk = Talk.find(params[:id])
   @talk.resources = params[:resources]
   @talk.description = params[:desc]
+  @talk.notes.create(text: params[:new_note], author_id: current_user.dbc_student_id)
   @talk.save
-  redirect to ('/talk/:id')
+  redirect to "/talk/#{@talk.id}"
 end
 
 get '/talk/:id' do
@@ -71,23 +72,23 @@ get '/talk/:id' do
   else
     erb :talk_show
   end
-end 
-
-get '/sign_in' do
-  redirect to ('/auth/dbc')
 end
 
-get '/auth/:provider/callback' do 
+get '/sign_in' do
+  redirect to "/auth/dbc"
+end
+
+get '/auth/:provider/callback' do
   user_attributes = request.env['omniauth.auth'].info
   p user_attributes
   session[:user_attributes] = user_attributes
   token = request.env['omniauth.auth'].credentials
   session[:oauth_token] = token_as_hash(token)
   @date = Time.now.to_date
-  redirect to ("/dashboard/#{@date}")
+  redirect to "/dashboard/#{@date}"
 end
 
 get '/sign_out' do
   session.clear
-  redirect to ('https://auth.devbootcamp.com')
+  redirect to 'https://auth.devbootcamp.com'
 end

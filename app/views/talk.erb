@@ -14,15 +14,8 @@
   </div>
 </form>
 <div>
-    <h2>Notes</h2>
-    <% @talk.notes.each |talk| do %>
-    <%= talk.text %>
-    <% end %>
-</div>
-<div>
   <!-- issue: getting the gravatar of user without having the user in the db -->
   <img src='' alt='author gravatar'>
   <h1>Author Id</h1>
-  <%= @talk.speaker_id %>
 </div>
 

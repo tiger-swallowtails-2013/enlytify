@@ -18,6 +18,7 @@
   <h2>Notes</h2>
   <% @talk.notes.each do |note| %>
   <p><%= note.text %></p>
+  <p> <%= (DBC::User.find(note.author_id)).name %> </p>
   <% end %>
 </div>
 <div>

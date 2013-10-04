@@ -61,6 +61,8 @@ post '/talk/:id' do
   @talk.resources = params[:resources]
   @talk.description = params[:desc]
   @talk.notes.create(text: params[:new_note], author_id: current_user.dbc_student_id)
+  @author = params[:note_author_name]
+  p @author
   @talk.save
   redirect to "/talk/#{@talk.id}"
 end

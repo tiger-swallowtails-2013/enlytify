@@ -56,7 +56,11 @@ end
 
 get '/talk/:id' do
   @talk = Talk.find(params[:id])
-  erb :talk
+  if current_user.dbc_student_id == @talk.speaker_id
+    erb :talk
+  else
+    erb :talk_show
+  end
 end 
 
 get '/sign_in' do

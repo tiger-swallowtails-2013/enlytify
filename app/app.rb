@@ -54,7 +54,7 @@ get '/dashboard/:date' do
   end
 end
 
-get '/talk/:id' do 
+get '/talk/:id' do
   @talk = Talk.find(params[:id])
   erb :talk
 end 

@@ -64,7 +64,7 @@ end
 
 post '/dashboard/:date/add_talk' do
   @date = params[:date]
-  Talk.create(topic: params[:new_talk], speaker: params[:author], date:params[:date])
+  Talk.create(topic: params[:new_talk], speaker: params[:author], date:params[:date], speaker_id: find_by_name(params[:author]).id)
   redirect "/dashboard/#{@date}"
 end
 
@@ -81,6 +81,7 @@ end
 
 get '/talk/:id' do
   @talk = Talk.find(params[:id])
+  @speaker_name = @talk
   @user_email = find_by_name(Talk.find(params[:id]).speaker).email
   @grav_url = Gravatar.new(@user_email).image_url
   if current_user.dbc_student_id == @talk.speaker_id

@@ -1,3 +1,4 @@
+<div class="container" style="text-align:center;">
 <div>
     <h1><%= @talk.topic %></h1>
     <h3><%= @talk.date %></h3>
@@ -5,6 +6,7 @@
 
 <div>
   <img src="<%=@grav_url%>" alt='author gravatar'>
+  <p><%= @talk.speaker %></p>
 </div>
 <div>
   <h2>Description</h2>
@@ -26,4 +28,6 @@
   <input class="new_note" type="text" name="new_note">
   <button id="add_note" class="btn btn-primary">add note</button>
 </form>
+</div>
+
 </div>

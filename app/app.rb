@@ -48,12 +48,19 @@ end
 get '/dashboard/:date' do
   if authenticated?
     @date = params[:date].to_date
+    @paramdate = params[:date]
     @days_talks = Talk.where("date = ?", params[:date])
     @cohort_id = current_user.cohort_id
     erb :dashboard
   else
     "Not authenticated"
   end
+end
+
+post '/dashboard/:date/add_talk' do
+  @date = params[:date]
+  Talk.create(topic: params[:new_talk], speaker: params[:author], date:params[:date])
+  redirect "/dashboard/#{@date}"
 end
 
 post '/talk/:id' do
@@ -91,3 +98,5 @@ get '/sign_out' do
   session.clear
   redirect to ('https://auth.devbootcamp.com')
 end
+
+

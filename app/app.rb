@@ -44,10 +44,12 @@ get '/' do
   erb :index
 end
 
+
 get '/dashboard/:date' do
   if authenticated?
     @date = params[:date].to_date
     @days_talks = Talk.where("date = ?", params[:date])
+    @cohort_id = current_user.cohort_id
     erb :dashboard
   else
     "Not authenticated"

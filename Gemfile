@@ -15,4 +15,5 @@ group :development, :test do
   gem 'jasmine'
   gem 'faker'
   gem 'dotenv'
+  gem 'capybara'
 end

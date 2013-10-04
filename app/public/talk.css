@@ -1,7 +1,23 @@
-h1 {
-  color: #FF0000;
+div {
+  color: white;
 }
 
 input {
   resize: both;
 }
+
+textarea { 
+  padding: 5px;
+  border: solid 1px;
+  margin-top: 5%;
+  width: 40%;
+  height: 20%;
+  background-color: white;
+  opacity: 0.4;
+  border-radius: 30px;
+}
+
+#talk_div {
+  position: relative;
+  margin-top: 5%;
+  }

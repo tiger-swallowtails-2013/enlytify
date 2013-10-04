@@ -3,6 +3,7 @@ require 'sinatra/activerecord'
 require 'dbc-ruby'
 require 'omniauth-dbc'
 require 'dotenv'
+require 'gravatar-ultimate'
 require_relative '../config'
 
 Dotenv.load('.env')
@@ -28,6 +29,10 @@ helpers do
       refresh_token: token.refresh_token,
       expires_at: token.expires_at
     }
+  end
+
+  def find_by_name(user_name)
+    DBC::User.all.select {|user| user.name == user_name}[0]
   end
 
   def date_format(date)
@@ -73,6 +78,8 @@ end
 
 get '/talk/:id' do
   @talk = Talk.find(params[:id])
+  @user_email = find_by_name(Talk.find(params[:id]).speaker).email
+  @grav_url = Gravatar.new(@user_email).image_url
   if current_user.dbc_student_id == @talk.speaker_id
     erb :talk
   else

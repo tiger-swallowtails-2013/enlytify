@@ -80,9 +80,12 @@ end
 get '/auth/:provider/callback' do 
   user_attributes = request.env['omniauth.auth'].info
   p user_attributes
+  p '*'*200
   session[:user_attributes] = user_attributes
   token = request.env['omniauth.auth'].credentials
   session[:oauth_token] = token_as_hash(token)
+  p'/'*200
+  p session
   @date = Time.now.to_date
   redirect to ("/dashboard/#{@date}")
 end

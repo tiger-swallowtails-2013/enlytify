@@ -59,7 +59,7 @@ post '/talk/:id' do
   @talk.resources = params[:resources]
   @talk.description = params[:desc]
   @talk.save
-  erb :talk
+  erb :talk_show
 end
 
 get '/talk/:id' do 

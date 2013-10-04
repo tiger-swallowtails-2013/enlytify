@@ -13,4 +13,15 @@ class User
   def find(id)
     DBC::User.find(id)
   end 
+
+  def find_cohort(cohort_id)
+    DBC::Cohort.find(cohort_id)
+  end
+
+  def list_cohort_names(cohort_id)
+    cohort_students = find_cohort(cohort_id).students.map do |student| 
+      student.name
+    end
+    cohort_students
+  end
 end 

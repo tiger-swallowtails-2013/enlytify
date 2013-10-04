@@ -3,6 +3,12 @@ body {
   background-size: 2081px 1170px;
 }
 
+#logout {
+  position:absolute;
+  left: 50%;
+  top: 5%;
+}
+
 .container{ 
   border: solid 1px;
   margin-top: 5%;

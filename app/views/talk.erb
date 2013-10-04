@@ -6,10 +6,10 @@
   <div>
     <h2>Talk Description</h2>
     <h2><%= @talk.description %></h2>
-    <input type="textarea" name="desc" id='desc_form'>
+    <textarea rows="20" cols="125" name="desc" id='desc_form'></textarea><br />
     <h2>Talk Resources</h2>
     <h2><%= @talk.resources %></h2>
-    <input type="textarea" name="resources" id='resources_form'>
+    <textarea rows="20" cols="125" name="resources" id='resources_form'></textarea><br />
     <input type="submit" value="Save">
   </div>
 </form>

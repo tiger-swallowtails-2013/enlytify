@@ -68,8 +68,8 @@ get '/talk/:id' do
     erb :talk
   else
     "Not authenticated"
-  end
-end 
+    redirect to ('/talk/:id')
+end
 
 
 

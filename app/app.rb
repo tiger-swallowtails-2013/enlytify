@@ -54,6 +54,14 @@ get '/dashboard/:date' do
   end
 end
 
+post '/talk/:id' do
+  @talk = Talk.find(params[:id])
+  @talk.resources = params[:resources]
+  @talk.description = params[:desc]
+  @talk.save
+  redirect to ('/talk/:id')
+end
+
 get '/talk/:id' do
   @talk = Talk.find(params[:id])
   if current_user.dbc_student_id == @talk.speaker_id

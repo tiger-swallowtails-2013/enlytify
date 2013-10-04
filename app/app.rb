@@ -3,6 +3,7 @@ require 'sinatra/activerecord'
 require 'dbc-ruby'
 require 'omniauth-dbc'
 require 'dotenv'
+require 'gravatar-ultimate'
 require_relative '../config'
 
 Dotenv.load('.env')
@@ -30,6 +31,10 @@ helpers do
     }
   end
 
+  def find_by_name(user_name)
+    DBC::User.all.select {|user| user.name == user_name}[0]
+  end
+
   def date_format(date)
     months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     date_array = date.scan(/../)
@@ -48,12 +53,19 @@ end
 get '/dashboard/:date' do
   if authenticated?
     @date = params[:date].to_date
+    @paramdate = params[:date]
     @days_talks = Talk.where("date = ?", params[:date])
     @cohort_id = current_user.cohort_id
     erb :dashboard
   else
     "Not authenticated"
   end
+end
+
+post '/dashboard/:date/add_talk' do
+  @date = params[:date]
+  Talk.create(topic: params[:new_talk], speaker: params[:author], date:params[:date])
+  redirect "/dashboard/#{@date}"
 end
 
 post '/talk/:id' do
@@ -69,6 +81,8 @@ end
 
 get '/talk/:id' do
   @talk = Talk.find(params[:id])
+  @user_email = find_by_name(Talk.find(params[:id]).speaker).email
+  @grav_url = Gravatar.new(@user_email).image_url
   if current_user.dbc_student_id == @talk.speaker_id
     erb :talk
   else
@@ -94,3 +108,5 @@ get '/sign_out' do
   session.clear
   redirect to 'https://auth.devbootcamp.com'
 end
+
+

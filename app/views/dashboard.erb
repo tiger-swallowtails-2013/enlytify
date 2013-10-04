@@ -11,13 +11,19 @@
         </tr>
       <% end %>
     </table>
+
+    <form id="add_talk" action="/dashboard/<%=@date%>/add_talk" method="post">
     <input class="new_talk" type="text" name="new_talk">
-    <select class="new_talk">
+    <select class="new_talk" name="author">
      <% current_user.list_cohort_names(@cohort_id).each do |student| %>
         <option><%= student %></option>
      <%end%>
     </select>
-    <button id="add_talk" class="btn btn-primary">add talk</button>
+    <input type="submit" class="btn btn-primary" value="add talk"></input>
+  </form>
+
+
+
   </div>
 <div id="next-day"><a href="/dashboard/<%=@date + 1%>" class="btn btn-primary">Next Day</a></div>
 

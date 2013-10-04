@@ -37,6 +37,7 @@ GEM
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
     ffi (1.9.0)
+    gravatar-ultimate (1.0.3)
     hashie (2.0.5)
     httpauth (0.2.0)
     i18n (0.6.5)
@@ -130,6 +131,7 @@ DEPENDENCIES
   dbc-ruby
   dotenv
   faker
+  gravatar-ultimate
   jasmine
   omniauth-dbc
   pg

@@ -6,6 +6,7 @@ gem 'sinatra-activerecord'
 gem 'dbc-ruby'
 gem 'omniauth-dbc'
 gem 'dotenv'
+gem 'gravatar-ultimate'
 
 group :development, :test do
   gem 'rspec'
